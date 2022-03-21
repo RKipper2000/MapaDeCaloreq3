@@ -34,6 +34,11 @@ public class puntos : MonoBehaviour
     {
         return ("valor de " + valor);
     }
+
+    public float vlr()
+    {
+        return valor;
+    }
 }
 
 

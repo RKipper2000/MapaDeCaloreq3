@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class Zona : MonoBehaviour
 {
-    //List<GameObject> listaPuntos;
-    //int cant = 0;
+    float avg;
+    int cant;
+    private void Start()
+    {
+        avg = 0;
+        cant = 0;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "punto")
@@ -15,6 +21,9 @@ public class Zona : MonoBehaviour
             Destroy(other.gameObject.GetComponent<Collider>());
 
             Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
+            cant += 1;
+            avg = ((avg*(cant-1))+ other.GetComponent<puntos>().vlr())/(cant);
+            Debug.Log("Promedio en " + gameObject.name + ": " + avg);
         }
     }
 }
