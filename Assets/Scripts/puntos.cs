@@ -32,7 +32,7 @@ public class puntos : MonoBehaviour
 
     public string getValor()
     {
-        return ("Valor de " + valor);
+        return ("valor de " + valor);
     }
 }
 
