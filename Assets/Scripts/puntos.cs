@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class puntos
+public class puntos : MonoBehaviour
 {
     public float latitud, longitud, valor;
-    public int x, y;
+    public float x, y;
     string zona = "Undefined";
 
-    void Start(float lat, float lon, float v)
+    public puntos()
+    {
+        latitud = 0;
+        longitud = 0;
+        valor = 0;
+    }
+
+    public puntos(float lat, float lon, float v)
     {
         latitud = lat;
         longitud = lon;
@@ -16,29 +23,16 @@ public class puntos
         // conversion
     }
 
-    public Vector3 GetPosition()
+    private void Start()
     {
-        return new Vector3(latitud, longitud);
+        valor = Random.Range(0,250);
+        x = transform.position.x;
+        y = transform.position.y;
     }
 
-    public string getZona()
+    public string getValor()
     {
-        return zona;
-    }
-
-    public void setZona(string z)
-    {
-        zona = z;
-    }
-
-    public void setValor(float v)
-    {
-        valor = v;
-    }
-
-    public float getValor()
-    {
-        return valor;
+        return ("Valor de " + valor);
     }
 }
 
