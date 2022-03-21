@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1906242226351579430}
   - component: {fileID: -4525712620972478543}
   - component: {fileID: 1819016295228894273}
+  - component: {fileID: -7948314251125171475}
   m_Layer: 0
   m_Name: Zona
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a6c3a61d304f5a4f8023a922e0d551d, type: 2}
+  - {fileID: 2100000, guid: d82c860457c81b843aa9465121c61914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2217d9925b32d8c43b26fa33a1a07611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verde: {fileID: 0}
+  amarillo: {fileID: 0}
+  naranja: {fileID: 0}
+  rojo: {fileID: 0}
 --- !u!54 &1819016295228894273
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,3 +130,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7948314251125171475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748706576660232150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53dff78067bd2e1409502fc5a59760f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verde: {fileID: 2100000, guid: d82c860457c81b843aa9465121c61914, type: 2}
+  amarillo: {fileID: 2100000, guid: 2ee18f17299c0924d835552547a2736c, type: 2}
+  naranja: {fileID: 2100000, guid: 316509997eabbd44cb3cdc07e3eb09b5, type: 2}
+  rojo: {fileID: 2100000, guid: 1dec3c19342153a46b0263d1ab7d658d, type: 2}
+  zona: {fileID: 4748706576660232150}

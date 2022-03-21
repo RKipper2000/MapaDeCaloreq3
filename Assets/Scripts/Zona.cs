@@ -7,6 +7,12 @@ public class Zona : MonoBehaviour
 {
     float avg;
     int cant;
+
+    public Material verde;
+    public Material amarillo;
+    public Material naranja;
+    public Material rojo;
+
     private void Start()
     {
         avg = 0;
@@ -22,9 +28,14 @@ public class Zona : MonoBehaviour
 
             Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
             cant += 1;
-            avg = ((avg*(cant-1))+ other.GetComponent<puntos>().vlr())/(cant);
+            avg = ((avg * (cant - 1)) + other.GetComponent<puntos>().vlr()) / (cant);
             Debug.Log("Promedio en " + gameObject.name + ": " + avg);
         }
+    }
+
+    public float getAvg()
+    {
+        return avg;
     }
 }
 
