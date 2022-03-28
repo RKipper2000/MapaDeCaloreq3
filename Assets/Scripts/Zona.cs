@@ -1,65 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zona : MonoBehaviour
 {
-    List<puntos> lecturasEnZona;
-    int cant = 0;
+    float avg;
+    int cant;
 
-    void addPunto(puntos p)
+    public Material verde;
+    public Material amarillo;
+    public Material naranja;
+    public Material rojo;
+
+    private void Start()
     {
-        lecturasEnZona.Add(p);
-        return;
+        avg = 0;
+        cant = 0;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "punto")
         {
-            // puntos p1 = 
-            // addPunto(other);
-            Destroy(other.gameObject);
+            //listaPuntos.Add(other.gameObject);
+            Destroy(other.gameObject.GetComponent<Collider>());
+
+            Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
             cant += 1;
-
+            avg = ((avg * (cant - 1)) + other.GetComponent<puntos>().vlr()) / (cant);
+            Debug.Log("Promedio en " + gameObject.name + ": " + avg);
         }
     }
 
-    public int cantLect()
+    public float getAvg()
     {
-        return lecturasEnZona.Count;
-    }
-
-    public float promedio()
-    {
-        float avg = 0;
-        for (int i=0; i<lecturasEnZona.Count; i++)
-        {
-            avg = avg + lecturasEnZona[i].getValor();
-        }
         return avg;
     }
-    
 }
-/*
-public class PlayerMovement : MonoBehaviour {
-    // Start is called before the first frame update
-    void OnTriggerEnter(Collider other) {
-        if (other.tag == "Rock") {
-            Destroy(other.gameObject);
-            ScoreScript.scoreCount += 1;
-        }
-        if (other.tag == "Power") {
-            Destroy(other.gameObject);
-            StartCoroutine("power");
-        }
-    }
 
-    IEnumerator power(){
-        transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z);
-        yield return new WaitForSecondsRealtime(6);
-        transform.localScale = new Vector3(transform.localScale.x / 2, transform.localScale.y, transform.localScale.z);
-    }
 
- */
 
