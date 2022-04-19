@@ -42,17 +42,6 @@ router.post('/', (request, response, next) => {
     })
 })
 
-/*
-router.post('/', (request, response, next) => {
-    let lectura = request.body
-    let sql = 'insert into Lectura(idSensor, idPlanta, fecha, hora, dato) values(?, ?, NOW(), NOW(), ?)'
-    conexion.query(sql, [lectura.idSensor, lectura.idPlanta, lectura.dato], (error, results, fields) => {
-        if (error) response.send(error)
-        response.json(results)
-    })
-})
-*/
-
 //6
 router.delete('/:idLectura', (request, response, next) => {
     let sql = 'delete from Lectura where idLectura = ?'
