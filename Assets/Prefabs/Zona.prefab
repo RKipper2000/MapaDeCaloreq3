@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5576420360363322155}
   - component: {fileID: 5038673834005732743}
   m_Layer: 0
-  m_Name: Zona 1
-  m_TagString: Untagged
+  m_Name: Zona
+  m_TagString: Zona
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
