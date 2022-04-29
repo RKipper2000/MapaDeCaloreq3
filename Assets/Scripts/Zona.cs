@@ -7,6 +7,8 @@ public class Zona : MonoBehaviour
 {
     float avg;
     int cant;
+    float[] valores = new float[100];
+    int pos = 0;
 
     public Material verde;
     public Material amarillo;
@@ -15,22 +17,25 @@ public class Zona : MonoBehaviour
 
     private void Start()
     {
-        avg = 0;
+        avg = 25;
         cant = 0;
+        for (int i = 0; i < 100; i++) valores[i] = 0;
+
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "punto")
         {
-            //listaPuntos.Add(other.gameObject);
-            cant += 1;
+            cant++;
+            //pos = (pos+1) % 99;
+            //avg += other.GetComponent<puntos>().vlr() / 100;
+            //avg -= valores[pos];
+            //valores[pos] = other.GetComponent<puntos>().vlr() / 100;
             avg = ((avg * (cant - 1)) + other.GetComponent<puntos>().vlr()) / (cant);
             Destroy(other.gameObject);
-            Debug.Log("Objeto destruido");
-            //Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
-            
-            //Debug.Log("Promedio en " + gameObject.name + ": " + avg);
+            //Debug.Log("Objeto destruido");
         }
     }
 

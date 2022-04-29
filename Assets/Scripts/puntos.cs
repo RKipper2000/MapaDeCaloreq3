@@ -25,8 +25,8 @@ public class puntos : MonoBehaviour
 
     private void Start()
     {
-        valor = Random.Range(-50,100);
-        if (valor > 90) valor = Random.Range(90,200);
+        valor = Random.Range(0,100);
+        if (valor > 95) valor = Random.Range(90,250);
         x = transform.position.x;
         y = transform.position.y;
     }
