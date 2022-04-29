@@ -6,7 +6,7 @@ public class puntos : MonoBehaviour
 {
     public float latitud, longitud, valor;
     public float x, y;
-    string zona = "Undefined";
+    //string zona = "Undefined";
 
     public puntos()
     {
@@ -25,7 +25,8 @@ public class puntos : MonoBehaviour
 
     private void Start()
     {
-        valor = Random.Range(0,250);
+        valor = Random.Range(-50,100);
+        if (valor > 90) valor = Random.Range(90,200);
         x = transform.position.x;
         y = transform.position.y;
     }
