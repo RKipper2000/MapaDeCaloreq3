@@ -29,6 +29,15 @@ public class puntos : MonoBehaviour
         if (valor > 90) valor = Random.Range(90,200);
         x = transform.position.x;
         y = transform.position.y;
+
+        //StartCoroutine(borrar());
+    }
+
+    IEnumerator borrar() {
+        while (true) {
+            yield return new WaitForSeconds(5);
+            Destroy(this);
+        }
     }
 
     public string getValor()

@@ -24,12 +24,13 @@ public class Zona : MonoBehaviour
         if (other.tag == "punto")
         {
             //listaPuntos.Add(other.gameObject);
-            Destroy(other.gameObject.GetComponent<Collider>());
-
-            Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
             cant += 1;
             avg = ((avg * (cant - 1)) + other.GetComponent<puntos>().vlr()) / (cant);
-            Debug.Log("Promedio en " + gameObject.name + ": " + avg);
+            Destroy(other.gameObject);
+            Debug.Log("Objeto destruido");
+            //Debug.Log("Colision detectada con " + other.GetComponent<puntos>().getValor());
+            
+            //Debug.Log("Promedio en " + gameObject.name + ": " + avg);
         }
     }
 
