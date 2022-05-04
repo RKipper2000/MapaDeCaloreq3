@@ -8,32 +8,28 @@ public class puntos : MonoBehaviour
     public float x, y;
     //string zona = "Undefined";
 
-    public puntos()
-    {
+    public puntos() {
         latitud = 0;
         longitud = 0;
         valor = 0;
     }
 
-    public puntos(float lat, float lon, float v)
+    public puntos(float lat, float lon, float val)
     {
         latitud = lat;
         longitud = lon;
-        valor = v;
+        valor = val;
         // conversion
     }
 
-    private void Start()
-    {
-        valor = Random.Range(0,100);
-        if (valor > 95) valor = Random.Range(90,250);
+    private void Start() {
         x = transform.position.x;
         y = transform.position.y;
     }
 
-    public string getValor()
+    public void setValor(double val)
     {
-        return ("valor de " + valor);
+        valor = (float)val;
     }
 
     public float vlr()

@@ -2,11 +2,11 @@ const mysql = require('../database/db')
 
 class MainController {
 
-    async getDataBySector(req , res){
+    async getDataBySector(req , res) {
         console.log(req.params.sectorID)
         if(req.params.sectorID != null) {
             let sectorID = req.params.sectorID
-            var sql = `SELECT valor, latitud, longitud FROM Lectura WHERE idSector=${sectorID}`
+            var sql = `SELECT valor, latitud, longitud FROM Lectura WHERE idSector=${sectorID} ORDER BY idLectura DESC LIMIT 100`
             mysql.query(sql, (error, results) => {
                 if(error) {
                     res.status(500)
@@ -33,7 +33,8 @@ class MainController {
             let longitud = req.params.longitud
             let sectorID = req.params.sectorID
             let sensorID = req.params.sensorID
-            var sql = `CALL SPLogData(${valor},${latitud},${longitud},${sectorID},${sensorID})`
+            var sql = `INSERT INTO lectura (valor, fecha, hora, latitud, longitud, idSector, idSensor) VALUES (${valor}, NOW(), NOW(), ${latitud},  ${longitud}, ${sectorID}, ${sensorID})`
+            
             mysql.query(sql, (error,data,fields) => {
                 if(error) {
                     res.status(500)
